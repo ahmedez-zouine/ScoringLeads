@@ -9,7 +9,8 @@ A partir d'un jeu de donnees brutes contenant des informations sur 100 clients (
 1. **Nettoyage des donnees** : suppression des doublons, traitement des valeurs manquantes et invalides
 2. **Analyse exploratoire (EDA)** : visualisation des distributions, correlations et tendances
 3. **Scoring des leads** : creation d'un score composite pour prioriser les leads
-4. **Visualisation finale** : dashboard recapitulatif et classement des leads
+4. **API REST** : backend FastAPI pour acceder aux donnees
+5. **Dashboard interactif** : interface Streamlit pour visualiser et filtrer les leads
 
 ## Structure du Projet
 
@@ -25,7 +26,9 @@ ScoringLeads/
 │   ├── score_leads.py          # Modele de scoring
 │   └── visualize.py            # Visualisations finales
 ├── charts/                     # Graphiques generes
-├── .gitignore
+├── api.py                      # Backend FastAPI
+├── dashboard.py                # Dashboard Streamlit
+├── requirements.txt            # Dependances Python
 └── README.md
 ```
 
@@ -54,22 +57,51 @@ Chaque critere est normalise sur une echelle de 0 a 100 avant d'appliquer les po
 - **27%** sont classes comme "Froid"
 - Les professions Ingenieur et Commercial ont les scores moyens les plus eleves
 
-## Technologies
 
-- Python 3
-- pandas, numpy
-- matplotlib, seaborn
+Cela lance :
+- **API** : http://localhost:8000
+- **Dashboard** : http://localhost:8501
 
-## Utilisation
+## Lancement Local
 
 ```bash
 python -m venv venv
 source venv/bin/activate
-pip install pandas numpy matplotlib seaborn
+pip install -r requirements.txt
 
-cd src
-python clean_data.py
+# Etape 1 : Nettoyer les donnees
+cd src && python clean_data.py
+
+# Etape 2 : Analyse exploratoire
 python eda.py
+
+# Etape 3 : Scoring
 python score_leads.py
+
+# Etape 4 : Visualisations
 python visualize.py
+
+# Etape 5 : Lancer l'API
+cd .. && uvicorn api:app --reload
+
+# Etape 6 : Lancer le dashboard (dans un autre terminal)
+streamlit run dashboard.py
 ```
+
+## API Endpoints
+
+| Methode | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/leads` | Liste des leads (filtrable par categorie, profession) |
+| GET | `/api/leads/{id}` | Detail d'un lead |
+| GET | `/api/stats` | Statistiques globales |
+| GET | `/api/professions` | Liste des professions |
+
+Exemple : `GET /api/leads?categorie=Chaud&sort_by=lead_score&order=desc`
+
+## Technologies
+
+- Python 3.11
+- pandas, numpy, matplotlib, seaborn
+- FastAPI, Uvicorn
+- Streamlit
