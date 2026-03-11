@@ -10,7 +10,24 @@ A partir d'un jeu de donnees brutes contenant des informations sur 100 clients (
 2. **Analyse exploratoire (EDA)** : visualisation des distributions, correlations et tendances
 3. **Scoring des leads** : creation d'un score composite pour prioriser les leads
 4. **API REST** : backend FastAPI pour acceder aux donnees
-5. **Dashboard interactif** : interface Streamlit pour visualiser et filtrer les leads
+5. **Dashboard interactif** : interface React + Streamlit pour visualiser et filtrer les leads
+6. **Deploiement** : Docker Compose pour lancer l'application en une seule commande
+
+## Lancement avec Docker (une seule commande)
+
+```bash
+docker-compose up --build
+```
+
+Cela lance :
+- **Frontend React** : http://localhost:3000
+- **API FastAPI** : http://localhost:8000
+- **API Docs** : http://localhost:8000/docs
+
+Pour arreter :
+```bash
+docker-compose down
+```
 
 ## Structure du Projet
 
@@ -25,9 +42,15 @@ ScoringLeads/
 │   ├── eda.py                  # Analyse exploratoire
 │   ├── score_leads.py          # Modele de scoring
 │   └── visualize.py            # Visualisations finales
+├── frontend/                   # Dashboard React (Vite)
 ├── charts/                     # Graphiques generes
 ├── api.py                      # Backend FastAPI
 ├── dashboard.py                # Dashboard Streamlit
+├── Dockerfile.api              # Docker pour l'API
+├── Dockerfile.frontend         # Docker pour le frontend
+├── docker-compose.yml          # Orchestration Docker
+├── nginx.conf                  # Config Nginx (production)
+├── Makefile                    # Commandes utilitaires
 ├── requirements.txt            # Dependances Python
 └── README.md
 ```
@@ -57,35 +80,27 @@ Chaque critere est normalise sur une echelle de 0 a 100 avant d'appliquer les po
 - **27%** sont classes comme "Froid"
 - Les professions Ingenieur et Commercial ont les scores moyens les plus eleves
 
-
-Cela lance :
-- **API** : http://localhost:8000
-- **Dashboard** : http://localhost:8501
-
 ## Lancement Local
+
+```bash
+make install
+make pipeline
+make api         # Terminal 1
+make frontend    # Terminal 2
+```
+
+Ou manuellement :
 
 ```bash
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-# Etape 1 : Nettoyer les donnees
-cd src && python clean_data.py
+cd src && python clean_data.py && python score_leads.py && cd ..
+uvicorn api:app --reload
 
-# Etape 2 : Analyse exploratoire
-python eda.py
-
-# Etape 3 : Scoring
-python score_leads.py
-
-# Etape 4 : Visualisations
-python visualize.py
-
-# Etape 5 : Lancer l'API
-cd .. && uvicorn api:app --reload
-
-# Etape 6 : Lancer le dashboard (dans un autre terminal)
-streamlit run dashboard.py
+# Dans un autre terminal
+cd frontend && npm install && npm run dev
 ```
 
 ## API Endpoints
@@ -101,7 +116,8 @@ Exemple : `GET /api/leads?categorie=Chaud&sort_by=lead_score&order=desc`
 
 ## Technologies
 
-- Python 3.11
+- Python 3.11, FastAPI, Uvicorn
 - pandas, numpy, matplotlib, seaborn
-- FastAPI, Uvicorn
+- React, Vite, Recharts
 - Streamlit
+- Docker, Docker Compose, Nginx
