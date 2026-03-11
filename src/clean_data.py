@@ -23,4 +23,4 @@ print(df.info())
 print(df.head(10))
 
 df.to_csv('../data/leads_cleaned.csv', index=False)
-print("\n Cleaned data saved to data/leads_cleaned.csv")
+print("\nCleaned data saved to data/leads_cleaned.csv")
