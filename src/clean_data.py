@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('leads_data.csv', encoding='latin-1')
+df = pd.read_csv('../data/leads_data.csv', encoding='latin-1')
 
 print("=== Before cleaning ===")
 print(f"Rows: {df.shape[0]}")
@@ -22,5 +22,5 @@ print(f"Rows: {df.shape[0]}")
 print(df.info())
 print(df.head(10))
 
-df.to_csv('leads_cleaned.csv', index=False)
-print("\n Cleaned data saved to leads_cleaned.csv")
+df.to_csv('../data/leads_cleaned.csv', index=False)
+print("\n Cleaned data saved to data/leads_cleaned.csv")
