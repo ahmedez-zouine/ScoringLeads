@@ -1,0 +1,69 @@
+# Created by https://www.toptal.com
+# Edit at https://www.toptal.com
+
+### Python ###
+# Byte-compiled / optimized / compressed files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.whl
+
+# Distributions and packaging
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+*.eggs
+
+# Transferred source files (from Mercurial)
+.hg/
+.hgcheck
+.hgignore
+.hgtags
+.hg_archival.txt
+_darcs
+.bzr
+.bazaar
+.svn/
+_svn
+
+# Unit test / coverage reports
+.coverage
+.tox/
+test/
+*.mo
+*.pot
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.txt
+
+# IDEs and editors
+# JetBrains IDEs (PyCharm, etc.)
+.idea/
+# VS Code
+.vscode/
+
+# Miscellaneous
+.ropeproject
+*.log
+*.swp
+last-update-check
+.dmypy.json
+.mypy_cache/
+.pyre/
+.pyre_configuration.py
+
+# Sensitive files/credentials (optional, use with caution if you need to commit them)
+# .env # uncomment to ignore environment variables file
+# secrets.toml
+
+### End of Python ###
