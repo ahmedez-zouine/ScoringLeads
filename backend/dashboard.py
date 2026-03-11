@@ -1,8 +1,9 @@
-import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-import requests
 import os
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import requests
+import streamlit as st
 
 API_URL = os.environ.get("API_URL", "http://localhost:8000")
 
@@ -30,7 +31,7 @@ with col_left:
     st.subheader("Repartition des Leads")
     fig1, ax1 = plt.subplots(figsize=(6, 4))
     labels = ["Chaud", "Tiede", "Froid"]
-    sizes = [stats["repartition"][l] for l in labels]
+    sizes = [stats["repartition"][label] for label in labels]
     colors = ["#e74c3c", "#f39c12", "#3498db"]
     ax1.pie(sizes, labels=labels, colors=colors, autopct="%1.0f%%", startangle=90)
     st.pyplot(fig1)
@@ -54,7 +55,9 @@ with col_filter1:
 with col_filter2:
     prof_filter = st.selectbox("Profession", ["Tous"] + professions)
 with col_filter3:
-    sort_option = st.selectbox("Trier par", ["lead_score", "revenu_mensuel", "score_interet"])
+    sort_option = st.selectbox(
+        "Trier par", ["lead_score", "revenu_mensuel", "score_interet"]
+    )
 
 params = {"sort_by": sort_option, "order": "desc"}
 if cat_filter != "Tous":
@@ -65,6 +68,7 @@ if prof_filter != "Tous":
 leads = requests.get(f"{API_URL}/api/leads", params=params).json()
 df = pd.DataFrame(leads)
 
+
 def color_categorie(val):
     if val == "Chaud":
         return "background-color: #fadbd8"
@@ -73,9 +77,17 @@ def color_categorie(val):
     else:
         return "background-color: #d6eaf8"
 
+
 if not df.empty:
-    display_cols = ["nom", "profession", "revenu_mensuel", "score_interet", "lead_score", "categorie"]
-    styled = df[display_cols].style.applymap(color_categorie, subset=["categorie"])
+    display_cols = [
+        "nom",
+        "profession",
+        "revenu_mensuel",
+        "score_interet",
+        "lead_score",
+        "categorie",
+    ]
+    styled = df[display_cols].style.map(color_categorie, subset=["categorie"])
     st.dataframe(styled, use_container_width=True, height=500)
 else:
     st.info("Aucun lead trouve avec ces filtres.")

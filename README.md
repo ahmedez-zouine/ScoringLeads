@@ -33,26 +33,35 @@ docker-compose down
 
 ```
 ScoringLeads/
+├── .env.example                # Variables d'environnement (template)
+├── .gitignore
+├── Makefile                    # Commandes utilitaires
+├── README.md
+├── docker-compose.yml          # Orchestration Docker
+├── nginx.conf                  # Config Nginx (reverse proxy)
+├── requirements.txt            # Dependances Python
+│
 ├── data/
-│   ├── leads_data.csv          # Donnees brutes
-│   ├── leads_cleaned.csv       # Donnees nettoyees
-│   └── leads_scored.csv        # Donnees avec scores
-├── src/
+│   ├── leads_data.csv          # Donnees brutes (source)
+│   ├── leads_cleaned.csv       # Donnees nettoyees (generees)
+│   └── leads_scored.csv        # Donnees avec scores (generees)
+│
+├── pipeline/                   # Scripts du pipeline de donnees
 │   ├── clean_data.py           # Nettoyage des donnees
 │   ├── eda.py                  # Analyse exploratoire
-│   ├── score_leads.py          # Modele de scoring
+│   ├── score_leads.py          # Moteur de scoring
 │   └── visualize.py            # Visualisations finales
+│
+├── backend/                    # API & Dashboard Streamlit
+│   ├── Dockerfile
+│   ├── api.py                  # Backend FastAPI
+│   └── dashboard.py            # Dashboard Streamlit
+│
 ├── frontend/                   # Dashboard React (Vite)
-├── charts/                     # Graphiques generes
-├── api.py                      # Backend FastAPI
-├── dashboard.py                # Dashboard Streamlit
-├── Dockerfile.api              # Docker pour l'API
-├── Dockerfile.frontend         # Docker pour le frontend
-├── docker-compose.yml          # Orchestration Docker
-├── nginx.conf                  # Config Nginx (production)
-├── Makefile                    # Commandes utilitaires
-├── requirements.txt            # Dependances Python
-└── README.md
+│   ├── Dockerfile
+│   └── src/
+│
+└── charts/                     # Graphiques generes
 ```
 
 ## Methode de Scoring
@@ -96,8 +105,8 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-cd src && python clean_data.py && python score_leads.py && cd ..
-uvicorn api:app --reload
+python pipeline/clean_data.py && python pipeline/score_leads.py
+cd backend && uvicorn api:app --reload
 
 # Dans un autre terminal
 cd frontend && npm install && npm run dev

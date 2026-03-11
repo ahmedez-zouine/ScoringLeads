@@ -95,4 +95,18 @@ dist-ssr
 *.sln
 *.sw?
 
-#  end for fronten
+#  end for frontend
+
+### Project-specific ###
+# Generated data files (keep only raw input)
+data/leads_cleaned.csv
+data/leads_scored.csv
+
+# Generated charts
+charts/*.png
+
+# Python virtual environment
+venv/
+
+# Local env overrides
+.env

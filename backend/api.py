@@ -1,7 +1,11 @@
+from pathlib import Path
+
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from typing import Optional
+
+DATA_DIR = Path(__file__).parent.parent / "data"
 
 app = FastAPI(title="Lead Scoring API", version="1.0.0")
 
@@ -12,15 +16,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-def load_scored_data():
-    return pd.read_csv("data/leads_scored.csv")
 
-def load_cleaned_data():
-    return pd.read_csv("data/leads_cleaned.csv")
+def load_scored_data() -> pd.DataFrame:
+    return pd.read_csv(DATA_DIR / "leads_scored.csv")
+
+
+def load_cleaned_data() -> pd.DataFrame:
+    return pd.read_csv(DATA_DIR / "leads_cleaned.csv")
+
 
 @app.get("/")
 def root():
     return {"message": "Lead Scoring API", "version": "1.0.0"}
+
 
 @app.get("/api/leads")
 def get_leads(
@@ -28,7 +36,7 @@ def get_leads(
     profession: Optional[str] = None,
     sort_by: str = "lead_score",
     order: str = "desc",
-    limit: int = Query(default=100, le=100)
+    limit: int = Query(default=100, le=100),
 ):
     df = load_scored_data()
 
@@ -44,6 +52,7 @@ def get_leads(
     df = df.head(limit)
     return df.to_dict(orient="records")
 
+
 @app.get("/api/leads/{lead_id}")
 def get_lead(lead_id: int):
     df = load_scored_data()
@@ -51,6 +60,7 @@ def get_lead(lead_id: int):
     if lead.empty:
         return {"error": "Lead not found"}
     return lead.iloc[0].to_dict()
+
 
 @app.get("/api/stats")
 def get_stats():
@@ -67,9 +77,13 @@ def get_stats():
             "Froid": int(df[df["categorie"] == "Froid"].shape[0]),
         },
         "score_par_profession": df.groupby("profession")["lead_score"]
-            .mean().round(1).sort_values(ascending=False).to_dict()
+        .mean()
+        .round(1)
+        .sort_values(ascending=False)
+        .to_dict(),
     }
     return stats
+
 
 @app.get("/api/professions")
 def get_professions():

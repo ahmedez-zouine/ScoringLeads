@@ -31,24 +31,24 @@ install:
 	cd frontend && npm install
 
 clean:
-	. venv/bin/activate && cd src && python clean_data.py
+	. venv/bin/activate && python pipeline/clean_data.py
 
 eda:
-	. venv/bin/activate && cd src && python eda.py
+	. venv/bin/activate && python pipeline/eda.py
 
 score:
-	. venv/bin/activate && cd src && python score_leads.py
+	. venv/bin/activate && python pipeline/score_leads.py
 
 visualize:
-	. venv/bin/activate && cd src && python visualize.py
+	. venv/bin/activate && python pipeline/visualize.py
 
 pipeline: clean eda score visualize
 
 api:
-	. venv/bin/activate && uvicorn api:app --reload --port 8000
+	. venv/bin/activate && cd backend && uvicorn api:app --reload --port 8000
 
 dashboard:
-	. venv/bin/activate && streamlit run dashboard.py
+	. venv/bin/activate && cd backend && streamlit run dashboard.py
 
 frontend:
 	cd frontend && npm run dev

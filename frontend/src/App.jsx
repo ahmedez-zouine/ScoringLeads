@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts'
 import './App.css'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+// In Docker: VITE_API_URL="" → nginx proxies /api/* to the API container.
+// In local dev: VITE_API_URL is undefined → fall back to http://localhost:8000.
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
