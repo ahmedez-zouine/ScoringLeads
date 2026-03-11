@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('../data/leads_data.csv', encoding='latin-1')
+df = pd.read_csv('../data/leads_data.csv')
 
 print("=== Before cleaning ===")
 print(f"Rows: {df.shape[0]}")
