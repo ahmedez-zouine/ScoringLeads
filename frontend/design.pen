@@ -1,4 +1,675 @@
 {
   "version": "2.8",
-  "children": []
+  "children": [
+    {
+      "type": "frame",
+      "id": "GlIrW",
+      "x": 80,
+      "y": 80,
+      "name": "Lead Scoring Dashboard",
+      "width": 1360,
+      "height": 1076,
+      "fill": "#0B1220",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 24,
+      "children": [
+        {
+          "type": "frame",
+          "id": "fuMxA",
+          "name": "header",
+          "width": "fill_container",
+          "height": 84,
+          "padding": 8,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "dWfjQ",
+              "name": "titleGroup",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aJlJy",
+                  "name": "titleText",
+                  "fill": "#E2E8F0",
+                  "content": "Lead Scoring Dashboard",
+                  "fontFamily": "Inter",
+                  "fontSize": 34,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "FHvI3",
+                  "name": "subtitleText",
+                  "fill": "#94A3B8",
+                  "content": "Analyse et priorisation des leads commerciaux",
+                  "fontFamily": "Inter",
+                  "fontSize": 15
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QxrMY",
+              "name": "statusPill",
+              "fill": "#1E293B",
+              "cornerRadius": 12,
+              "padding": [
+                10,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jhl3Y",
+                  "name": "statusText",
+                  "fill": "#93C5FD",
+                  "content": "Live Data • FastAPI",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Cw9SF",
+          "name": "metricsRow",
+          "width": "fill_container",
+          "height": 138,
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "6YjKN",
+              "name": "card1",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#111827",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "btkoq",
+                  "name": "card1Label",
+                  "fill": "#94A3B8",
+                  "content": "Total Leads",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "vHkNP",
+                  "name": "card1Value",
+                  "fill": "#A78BFA",
+                  "content": "100",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dwvHS",
+              "name": "card2",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#111827",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HOvcq",
+                  "name": "card2Label",
+                  "fill": "#94A3B8",
+                  "content": "Score Moyen",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "XFbh9",
+                  "name": "card2Value",
+                  "fill": "#34D399",
+                  "content": "52.6",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lK8kD",
+              "name": "card3",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#111827",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KEmmI",
+                  "name": "card3Label",
+                  "fill": "#94A3B8",
+                  "content": "Leads Chauds",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "Pv5sG",
+                  "name": "card3Value",
+                  "fill": "#FB7185",
+                  "content": "13",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Qnbo9",
+              "name": "card4",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#111827",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wqFPb",
+                  "name": "card4Label",
+                  "fill": "#94A3B8",
+                  "content": "Leads Froids",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "M8xum",
+                  "name": "card4Value",
+                  "fill": "#38BDF8",
+                  "content": "27",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "omCRM",
+          "name": "chartsRow",
+          "width": "fill_container",
+          "height": 280,
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "A5025",
+              "name": "chartA",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#111827",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "YhwnO",
+                  "name": "chartATitle",
+                  "fill": "#E2E8F0",
+                  "content": "Répartition des Leads",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "y27qK",
+                  "name": "chartAPlaceholder",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1F2937",
+                  "cornerRadius": 12,
+                  "padding": 18,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "4qPLg",
+                      "name": "donut",
+                      "innerRadius": 0.58,
+                      "fill": "#334155",
+                      "width": 132,
+                      "height": 132
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Afs1Q",
+                      "name": "legend",
+                      "width": 200,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pdF0f",
+                          "name": "lg1",
+                          "fill": "#FB7185",
+                          "content": "● Chaud 13%",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "a6gHj",
+                          "name": "lg2",
+                          "fill": "#F59E0B",
+                          "content": "● Tiède 60%",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Fbibw",
+                          "name": "lg3",
+                          "fill": "#38BDF8",
+                          "content": "● Froid 27%",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ccyIx",
+              "name": "chartB",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#111827",
+              "cornerRadius": 14,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "36YsP",
+                  "name": "chartBTitle",
+                  "fill": "#E2E8F0",
+                  "content": "Score Moyen par Profession",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "6rOqV",
+                  "name": "chartBPlaceholder",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1F2937",
+                  "cornerRadius": 12,
+                  "gap": 10,
+                  "padding": 14,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 6,
+                      "id": "3HRqB",
+                      "name": "b1",
+                      "fill": "#334155",
+                      "width": 26,
+                      "height": 64
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 6,
+                      "id": "M2dyy",
+                      "name": "b2",
+                      "fill": "#6366F1",
+                      "width": 26,
+                      "height": 92
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 6,
+                      "id": "axdaO",
+                      "name": "b3",
+                      "fill": "#8B5CF6",
+                      "width": 26,
+                      "height": 118
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 6,
+                      "id": "KibOj",
+                      "name": "b4",
+                      "fill": "#A78BFA",
+                      "width": 26,
+                      "height": 138
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Cvf1s",
+          "name": "tableSection",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#111827",
+          "cornerRadius": 14,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "k6w8D",
+              "name": "tableTitle",
+              "fill": "#E2E8F0",
+              "content": "Liste des Leads (filtrable)",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "eOmmP",
+              "name": "filtersBar",
+              "width": "fill_container",
+              "gap": 10,
+              "padding": [
+                0,
+                0,
+                4,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fURGo",
+                  "name": "chip1",
+                  "fill": "#1E293B",
+                  "cornerRadius": 999,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nEA8T",
+                      "name": "chip1Text",
+                      "fill": "#CBD5E1",
+                      "content": "Catégorie",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nYe9b",
+                  "name": "chip2",
+                  "fill": "#1E293B",
+                  "cornerRadius": 999,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "50VTZ",
+                      "name": "chip2Text",
+                      "fill": "#CBD5E1",
+                      "content": "Profession",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aCPHv",
+                  "name": "chip3",
+                  "fill": "#1E293B",
+                  "cornerRadius": 999,
+                  "padding": [
+                    8,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bbcFw",
+                      "name": "chip3Text",
+                      "fill": "#CBD5E1",
+                      "content": "Tri par Score",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GxrpM",
+              "name": "tableHeader",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#1F2937",
+              "cornerRadius": 10,
+              "gap": 12,
+              "padding": [
+                0,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qfN6d",
+                  "name": "h1",
+                  "fill": "#94A3B8",
+                  "content": "Nom",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "Nj0My",
+                  "name": "h2",
+                  "fill": "#94A3B8",
+                  "content": "Profession",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "CmTHv",
+                  "name": "h3",
+                  "fill": "#94A3B8",
+                  "content": "Revenu",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "45m2x",
+                  "name": "h4",
+                  "fill": "#94A3B8",
+                  "content": "Intérêt",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "4Run2",
+                  "name": "h5",
+                  "fill": "#94A3B8",
+                  "content": "Lead Score",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "PBRn7",
+                  "name": "h6",
+                  "fill": "#94A3B8",
+                  "content": "Catégorie",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XtXUi",
+              "name": "tableRow",
+              "width": "fill_container",
+              "height": 56,
+              "fill": "#0F172A",
+              "cornerRadius": 10,
+              "gap": 12,
+              "padding": [
+                0,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ITdsx",
+                  "name": "r1",
+                  "fill": "#E2E8F0",
+                  "content": "Ahmed Benali   |   Ingénieur   |   22 000 €   |   92   |   84.5   |   Chaud",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sN1V4",
+              "name": "row2",
+              "width": "fill_container",
+              "height": 56,
+              "fill": "#0F172A",
+              "cornerRadius": 10,
+              "padding": [
+                0,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wTNju",
+                  "name": "r2",
+                  "fill": "#CBD5E1",
+                  "content": "Sara El Idrissi   |   Commercial   |   18 500 €   |   79   |   73.1   |   Chaud",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mVbeF",
+              "name": "row3",
+              "width": "fill_container",
+              "height": 56,
+              "fill": "#0F172A",
+              "cornerRadius": 10,
+              "padding": [
+                0,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LfMc1",
+                  "name": "r3",
+                  "fill": "#94A3B8",
+                  "content": "Youssef Karim   |   Enseignant   |   9 200 €   |   46   |   41.8   |   Tiède",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "FQdPm",
+          "name": "footer",
+          "fill": "#64748B",
+          "content": "Prototype UI • AI Associates",
+          "fontFamily": "Inter",
+          "fontSize": 12,
+          "fontWeight": "500"
+        }
+      ]
+    }
+  ]
 }
