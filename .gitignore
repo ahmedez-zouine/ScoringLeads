@@ -44,7 +44,6 @@ env/
 ENV/
 env.bak/
 venv.bak/
-*.txt
 
 # IDEs and editors
 # JetBrains IDEs (PyCharm, etc.)
