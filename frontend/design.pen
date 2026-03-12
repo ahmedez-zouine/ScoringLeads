@@ -48,7 +48,8 @@
                   "fill": "#94A3B8",
                   "content": "Analyse et priorisation des leads commerciaux",
                   "fontFamily": "Inter",
-                  "fontSize": 15
+                  "fontSize": 15,
+                  "fontWeight": "normal"
                 }
               ]
             },
