@@ -5,7 +5,16 @@ from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from typing import Optional
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+
+def resolve_data_dir() -> Path:
+    current_dir = Path(__file__).resolve().parent
+    local_data = current_dir / "data"
+    if local_data.exists():
+        return local_data
+    return current_dir.parent / "data"
+
+
+DATA_DIR = resolve_data_dir()
 
 app = FastAPI(title="Lead Scoring API", version="1.0.0")
 

@@ -21,7 +21,7 @@ help:
 	@echo "    make frontend      Lancer le frontend React     -> http://localhost:5173"
 	@echo ""
 	@echo "  Docker:"
-	@echo "    make docker        Lancer tout avec Docker      -> http://localhost:3000"
+	@echo "    make docker        Lancer API + Frontend (Docker) -> http://localhost:3000"
 	@echo "    make docker-down   Arreter les containers"
 	@echo ""
 
@@ -53,8 +53,15 @@ dashboard:
 frontend:
 	cd frontend && npm run dev
 
+all: docker
+
 docker:
-	docker-compose up --build
+	docker-compose up --build -d
+	@echo " Services demarres:"
+	@docker-compose ps
+	@echo " Frontend: http://localhost:3000"
+	@echo " API: http://localhost:8000"
+
 
 docker-down:
 	docker-compose down
